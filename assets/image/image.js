@@ -1,0 +1,15 @@
+export const image={
+    intro1:require("../image/Intro1.png"),
+    intro2:require("../image/Intro2.png"),
+    intro3:require("../image/Intro3.png"),
+    Arabic:require("../image/Arabic.png"),
+    English:require("../image/English.png"),
+    swiper:require("../image/status.png"),
+    city1:require("../image/city1.png"),
+    city2:require("../image/city2.png"),
+    property1:require("../image/property1.png"),
+    property2:require("../image/property2.png"),
+    property3:require("../image/property3.png"),
+    group:require("../image/Group.png"),
+    tab:require("../image/Tab.png"),
+}
