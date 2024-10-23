@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">DAR</string>
     <string name="facebook_app_id">1093276758835402</string> 
+    <string name="facebook_client_token">9adf042ac1d0395939f9ebaf536b413d</string>
+
 </resources>

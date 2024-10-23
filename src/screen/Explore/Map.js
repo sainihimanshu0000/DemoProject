@@ -27,6 +27,22 @@ const Map = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { priceRange, selectedBedrooms, selectedBathrooms, selectedAmenities, likedProperty } = useSelector(state => state.filter);
 
+  const [selectedDestination, setSelectedDestination] = useState();
+  const [selectedProperties, setSelectedProperties] = useState([]);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDates, setSelectedDates] = useState({});
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
+  const [selectedKey, setSelectedKey] = useState('');
+  // const [currentIndex, setCurrentIndex] = useState(0); // For controlling component display
+  const [guestCounts, setGuestCounts] = useState([
+    { category: 'Adults', age: 'Ages 13+', count: 0 },
+    { category: 'Children', age: 'Age 2-12', count: 0 },
+    { category: 'Infants', age: 'Under 2', count: 0 },
+    { category: 'Pets', age: 'Bringing a service animal?', count: 0 }
+  ]);
+
+
+
   useEffect(() => {
     if (selectedHotel && mapRef.current) {
       mapRef.current.animateToRegion({
@@ -44,27 +60,80 @@ const Map = () => {
       : [...likedProperty, item.id];
 
     dispatch(setLikedProperty(newLikedProperty));
-  };
-
-  const filterProperties = () => {
+  };const filterProperties = () => {
     const results = properties.filter((property) => {
       const discountedPrice = property.price.discounted;
+  
+      // Check price range
       const isPriceInRange = discountedPrice >= priceRange[0] && discountedPrice <= priceRange[1];
+  
+      // Check bedrooms and bathrooms match
       const isBedroomsMatch = selectedBedrooms === 'Any' || property.attributes.bedrooms === selectedBedrooms;
       const isBathroomsMatch = selectedBathrooms === 'Any' || property.attributes.bathrooms === selectedBathrooms;
+  
+      // Check amenities match
       const isAmenitiesMatch = selectedAmenities.length === 0 || selectedAmenities.every((amenity) =>
         property.amenities.some((item) => item.toLowerCase() === amenity.toLowerCase())
       );
-      return isPriceInRange && isBedroomsMatch && isBathroomsMatch && isAmenitiesMatch;
+  
+      // Check if the property matches the selected destination (using `location` or `title`)
+      const isDestinationMatch = !selectedDestination || property.location === selectedDestination || property.title === selectedDestination;
+      
+      // // Check if the property is in the selected properties list (optional filter)
+      const isSelectedPropertiesMatch = selectedProperties.length === 0 || selectedProperties.includes( property.type );
+// console.log(' selectedProperties.includes( property.type )',  selectedProperties.includes( property.type ))
+      // selectedProperties.includes(console.log(item))
+      // console.log("====",selectedProperties.includes((item)=>property.type===item))
+      // console.log("-=-\/\/\/\\",selectedProperties)
+  
+      // // Check if the property matches the selected date or dates
+      const isDateMatch = !selectedDate || 
+        (new Date(property.availability.availableFrom) <= new Date(selectedDate) && 
+         new Date(property.availability.availableTo) >= new Date(selectedDate));
+      const isDatesMatch = !selectedDates || 
+        Object.keys(selectedDates).every((key) =>
+          (new Date(property.availability.availableFrom) <= new Date(selectedDates[key]) && 
+           new Date(property.availability.availableTo) >= new Date(selectedDates[key]))
+        );
+  
+      // // Check if the property matches the selected time slot (if applicable)
+      // const isTimeSlotMatch = !selectedTimeSlot || (property.timeSlots && property.timeSlots.includes(selectedTimeSlot));
+  
+      // // Check if the property matches the selected key
+      // const isKeyMatch = !selectedKey || property.key === selectedKey;
+  
+      return isPriceInRange &&
+        isBedroomsMatch &&
+        isBathroomsMatch &&
+        isAmenitiesMatch &&
+        isDestinationMatch &&
+        isSelectedPropertiesMatch &&
+         isDateMatch ;
+        // isDatesMatch ||
+        // isTimeSlotMatch ||
+        // isKeyMatch;
     });
-
+  
     setFilteredProperties(results);
+    console.log(results)
   };
-
+  
+  // Trigger filter when any relevant state changes
   useEffect(() => {
     filterProperties();
-  }, [priceRange, selectedBedrooms, selectedBathrooms, selectedAmenities]);
-
+  }, [
+    priceRange,
+    selectedBedrooms,
+    selectedBathrooms,
+    selectedAmenities,
+    selectedDestination,
+    selectedProperties,
+    selectedDate,
+    selectedDates,
+    selectedTimeSlot,
+    selectedKey,
+  ]);
+  
   const handleModal = () => {
     setVisibleModal(!visibleModal)
   }
@@ -211,7 +280,23 @@ const Map = () => {
               >
                 {/* <ChooseDestination handleModal={() => handleModal()} /> */}
                 {/* <ChooseProperty /> */}
-                <FilterDestination handleModal={handleModal} />
+                <FilterDestination
+                  handleModal={handleModal}
+                  selectedDestination={selectedDestination}
+                  setSelectedDestination={setSelectedDestination}
+                  selectedProperties={selectedProperties}
+                  setSelectedProperties={setSelectedProperties}
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  selectedDates={selectedDates}
+                  setSelectedDates={setSelectedDates}
+                  selectedTimeSlot={selectedTimeSlot}
+                  setSelectedTimeSlot={setSelectedTimeSlot}
+                  selectedKey={selectedKey}
+                  setSelectedKey={setSelectedKey}
+                  guestCounts={guestCounts}
+                  setGuestCounts={setGuestCounts}
+                />
               </Modal>
 
               {/* <MyComponent/> */}
@@ -250,7 +335,7 @@ const styles = StyleSheet.create({
     top: 0,
     // width: "100%",
 
-marginTop:10,
+    marginTop: 10,
   },
   priceLabel: {
     height: 40,

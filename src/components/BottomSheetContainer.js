@@ -64,7 +64,7 @@ const BottomSheetContainer = ({ data, handlePropertyLiked, likedProperty }) => {
         data={item.gallery}
         keyExtractor={(galleryItem, index) => index.toString()}
         horizontal
-        style={{ zIndex: 10 }}
+        style={{ zIndex: 0 }}
         pagingEnabled
         onScroll={(e) => handleScroll(e, item?.id)}
         scrollEventThrottle={6}
@@ -205,6 +205,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
+    top: "51%",
+
   },
   propertyImage: {
     width: width,

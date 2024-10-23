@@ -7,7 +7,11 @@ import { localNotificationService } from './src/Notification/LocalNotificationSe
 import { fcmService } from './src/Notification/FMCService';
 import { NavigationContainer } from '@react-navigation/native';
 import MainStack from './src/navigation/MainStack';
+import auth from "@react-native-firebase/app";
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+
 import { navigationRef } from './src/Notification/notificationAction';
+import Map from './src/screen/Explore/Map';
 const Stack= createNativeStackNavigator()
 
 if (Platform.OS === 'android') {
@@ -16,6 +20,8 @@ if (Platform.OS === 'android') {
 
 
 const App = () => {
+
+ 
   useEffect(() => {
     SplashScreen.hide();
 
@@ -57,9 +63,15 @@ const App = () => {
 //     </Stack.Navigator>
 
 //   </NavigationContainer>
-<View>
-  <Button title='notification' onPress={handleLocalNotification}/>
-</View>
+// {/* <View>
+//   <Button title='notification' onPress={handleLocalNotification}/>
+
+//   <Button
+//       title="Facebook Sign-In"
+//       onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
+//     />
+// </View> */}
+<Map/>
   );
 };
 

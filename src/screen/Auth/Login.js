@@ -9,6 +9,8 @@ import { strings } from '../../locales/Localization';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Validation from '../../utils/Validation';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from "@react-native-firebase/app";
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
 
 const Login = ({ navigation }) => {
@@ -86,7 +88,7 @@ const Login = ({ navigation }) => {
             <SvgIcon name="customIcon" size={30} color="#000" />
           </View>
           <View style={styles.textContainer}>
-            <Typography size={30} lineHeight={45} color="#000000" fonts={600} style={styles.alignRight}>
+            <Typography size={30} lineHeight={45} color="#000000"   type={Fonts.PoppinsBold} style={styles.alignRight}>
               {strings.welcome_back}
             </Typography>
           </View>
@@ -133,11 +135,11 @@ const Login = ({ navigation }) => {
           </View>
 
           <View style={styles.signupContainer}>
-            <Typography fonts={400} size={18} lineHeight={27}>
+            <Typography  size={18} lineHeight={27}>
               {strings.no_account} 
             </Typography>
             <TouchableOpacity onPress={() => {navigation.navigate("SignUp")}}>
-              <Typography fonts={600} size={18} lineHeight={27} color="#DA4726" style={styles.signupText}>
+              <Typography  size={18} lineHeight={27} color="#DA4726" style={styles.signupText}>
                 {strings.signup} 
               </Typography>
             </TouchableOpacity>

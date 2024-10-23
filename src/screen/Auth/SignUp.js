@@ -57,7 +57,7 @@ const SignUp = ({ navigation }) => {
                         {strings.create_account}
                     </Typography>
                     <Typography
-                        fonts={500}
+                       
                         size={18}
                         lineHeight={27}
                         color="#525758"

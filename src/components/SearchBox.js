@@ -8,7 +8,7 @@ import { BlurView } from '@react-native-community/blur';
 const { width } = Dimensions.get("window");
 
 const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
-   
+
     const animatedWidth = useSharedValue(width * 0.9);
     const animatedHeight = useSharedValue(70);
 
@@ -43,7 +43,7 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
                             <SvgIcon name={svgRightName} color={"#000"} />
                         </TouchableOpacity>
                     </View>
-                ):(
+                ) : (
                     <View>
 
                         <View style={styles.header}>
@@ -59,7 +59,7 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
                                     style={styles.input}
                                     placeholder="Search destinations"
                                     placeholderTextColor="#8e8e93"
-                                    />
+                                />
                             </View>
                             <View style={styles.destinationContainer}>
                                 {["I'm flexible", "Europe", "United Kingdom"].map((destination, index) => (
@@ -69,42 +69,42 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
                                 ))}
                             </View>
                         </View>
-                        </View>
+                    </View>
 
                 )}
-</Animated.View>
+            </Animated.View>
 
-                {isExpanded && (
-                    
-                    <View>
+            {isExpanded && (
 
-                       
+                <View>
 
-                        <View style={styles.searchCard}>
-                            <TouchableOpacity style={styles.optionRow}>
-                                <Typography style={styles.optionTypography}>When</Typography>
-                                <Typography style={styles.optionSubTypography}>Any week</Typography>
-                            </TouchableOpacity>
-                        </View>
 
-                        <View style={styles.searchCard}>
-                            <TouchableOpacity style={styles.optionRow}>
-                                <Typography style={styles.optionTypography}>Who</Typography>
-                                <Typography style={styles.optionSubTypography}>Add guests</Typography>
-                            </TouchableOpacity>
-                        </View>
 
-                        <View style={styles.bottomBar}>
-                            <TouchableOpacity style={styles.clearButton}>
-                                <Typography style={styles.clearTypography}>Clear all</Typography>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.searchButton}>
-                                <Typography style={styles.searchButtonTypography}>Search</Typography>
-                            </TouchableOpacity>
-                        </View>
-                        </View>
-                   
-                )}
+                    <View style={styles.searchCard}>
+                        <TouchableOpacity style={styles.optionRow}>
+                            <Typography style={styles.optionTypography}>When</Typography>
+                            <Typography style={styles.optionSubTypography}>Any week</Typography>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.searchCard}>
+                        <TouchableOpacity style={styles.optionRow}>
+                            <Typography style={styles.optionTypography}>Who</Typography>
+                            <Typography style={styles.optionSubTypography}>Add guests</Typography>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.bottomBar}>
+                        <TouchableOpacity style={styles.clearButton}>
+                            <Typography style={styles.clearTypography}>Clear all</Typography>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.searchButton}>
+                            <Typography style={styles.searchButtonTypography}>Search</Typography>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+            )}
         </ScrollView>
     );
 };
@@ -113,7 +113,7 @@ export default SearchBox;
 
 const styles = StyleSheet.create({
     containerBox: {
-      
+
         backgroundColor: '#fff',
         // alignItems: 'center',
         paddingHorizontal: 15,
@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
         shadowRadius: 12,
         elevation: 3,
         justifyContent: "space-between",
-      
-        width:"100%"
+
+        width: "100%"
     },
     blurView: {
         flex: 1,

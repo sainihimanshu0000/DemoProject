@@ -4,9 +4,11 @@ import { Typography } from '../../components/Typography';
 import SvgIcon from '../../components/SvgIcon';
 import LanguageOption from '../../components/LanguageOption';
 import { image } from '../../../assets/image/image';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { strings } from '../../locales/Localization';
+import { Fonts } from '../../../assets/fonts/fonts';
 
 const ChooseLanguage = ({ navigation }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -28,12 +30,12 @@ const ChooseLanguage = ({ navigation }) => {
           <SvgIcon name="customIcon" size={30} color="#000" />
         </View>
         <View style={styles.textContainer}>
-          <Typography size={30} lineHeight={45} color="#000000" fonts={600} style={styles.alignLeft}>
+          <Typography size={30} lineHeight={45} color="#000000"   type={Fonts.PoppinsBold} style={styles.alignLeft}>
             {strings.choose_language}
           </Typography>
         </View>
       </View>
-      <Typography size={18} lineHeight={27} color="#525758" style={[styles.alignLeft, { marginBottom: 42 }]}>
+      <Typography size={18} lineHeight={27} color="#525758" style={[styles.alignLeft , { marginBottom: 42 }]}>
         {strings.select_language}
       </Typography>
 

@@ -9,7 +9,7 @@ const AuthStack = () => {
 
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen
         name='ChooseLanguage'
         component={require('../screen/Auth/ChooseLanguage').default}

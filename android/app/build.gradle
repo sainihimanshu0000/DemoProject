@@ -80,7 +80,7 @@ dependencies {
 
     // Google Sign-In dependency
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
-
+implementation 'com.facebook.android:facebook-android-sdk:latest.release'
     // Facebook SDK dependency (replace 8.2.0 with the latest version)
 //   implementation 'com.facebook.android:facebook-android-sdk:15.2.0'
 //  implementation 'com.facebook.android:facebook-android-sdk:[8,9)' 

@@ -57,6 +57,7 @@ const SelectReservationDate = ({
           horizontal
           showsHorizontalScrollIndicator={false}
           data={Object.keys(chooseReservationTime)}
+          // style={{justifyContent:"space-between"}}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
@@ -138,12 +139,13 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignContent: 'center',
+    height:"90%"
   },
   timeSlotContainer: {
     backgroundColor: '#F4F4F4',
     borderRadius: 30,
     width: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
   timeSlots: {
     borderWidth: 1,

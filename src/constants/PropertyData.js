@@ -1,10 +1,18 @@
 import { image } from "../../assets/image/image"
 
+// { title: "All", icon: "trips" },
+// { title: "Villas & Apartments", icon: "villas" },
+// { title: "Chalets & Resorts", icon: "Chalets" },
+// { title: "Farms", icon: "Farms" },
+// { title: "Camps", icon: "camps" },
+
+
 export const properties = [
   {
     id: 1,
     "title": "King Abdullah Economic City",
     "location": "Durrat Al Arous - Fun Beach Chalet",
+    "type": "Villas & Apartments",
     "price": {
       "original": 3000,
       "discounted": 2500,
@@ -29,10 +37,6 @@ export const properties = [
     },
     "image_url": image.property1,
     "gallery": [
-     
-      image.property1,
-      image.property3,
-      image.property2, 
       image.property1,
       image.property3,
       image.property2,
@@ -72,6 +76,7 @@ export const properties = [
     id: 2,
     "title": "Jeddah Corniche Resort",
     "location": "North Obhur - Luxury Villa",
+    "type": "Chalets & Resorts",
     "price": {
       "original": 4500,
       "discounted": 4000,
@@ -135,6 +140,7 @@ export const properties = [
     id: 3,
     "title": "Riyadh Luxury Apartment",
     "location": "Al Olaya District - City Center Penthouse",
+    "type": "Farms",
     "price": {
       "original": 2200,
       "discounted": 2000,
@@ -198,6 +204,7 @@ export const properties = [
     id: 4,
     "title": "Mecca Family Retreat",
     "location": "Ajyad - Holy Mosque View",
+    "type": "Family Retreat",
     "price": {
       "original": 5000,
       "discounted": 4500,
@@ -228,9 +235,9 @@ export const properties = [
     ],
     "is_favorited": false,
     "amenities": [
-      "WiFi",
-      "Kitchen",
-      "Washing machine"
+      "wifi",
+      "kitchen",
+      "washing machine"
     ],
     "description": "A spacious family retreat located near the Holy Mosque in Mecca, ideal for religious tourists.",
     "availability": {
@@ -258,6 +265,7 @@ export const properties = [
     id: 5,
     "title": "Al Khobar Beachfront Condo",
     "location": "Al Corniche - Premium Sea View",
+    "type": "Camps",
     "price": {
       "original": 3200,
       "discounted": 2800,
@@ -284,37 +292,350 @@ export const properties = [
     "gallery": [
       image.property2,
       image.property1,
-     image.property3,
+      image.property3,
     ],
     "is_favorited": true,
     "amenities": [
       "wifi",
-      "pool",
       "gym",
+      "airConditioning",
+      "petsAllowed"
+    ],
+    "description": "A beachfront condo located in Al Khobar, offering modern amenities and stunning sea views.",
+    "availability": {
+      "availableFrom": "2024-11-10",
+      "availableTo": "2025-03-20"
+    },
+    "cancellationPolicy": "Free cancellation within 48 hours.",
+    "owner": {
+      "name": "Ahmed Al-Saud",
+      "contact": "+966 3344556677",
+      "email": "ahmed.saudi@example.com"
+    },
+    "terms": {
+      "checkIn": "5:00 PM",
+      "checkOut": "12:00 PM",
+      "minStay": "2 nights",
+      "maxStay": "25 nights"
+    },
+    "coordinates": {
+      "latitude": 26.278029,
+      "longitude": 50.208351
+    }
+  },{
+    id: 6,
+    "title": "Abha Mountain View Lodge",
+    "location": "Soudah - Mountain Top Chalet",
+    "type": "Lodge",
+    "price": {
+      "original": 1800,
+      "discounted": 1500,
+      "currency": "SAR",
+      "per": "Night"
+    },
+    "rating": {
+      "stars": 4.5,
+      "reviews": 30
+    },
+    "attributes": {
+      "guests": 4,
+      "area": 700,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "parkingSpaces": 1
+    },
+    "discount": {
+      "percentage": "16%",
+      "label": "16% Discount",
+      "validUntil": "2024-11-30"
+    },
+    "image_url": image.property3,
+    "gallery": [
+      image.property2,
+      image.property1,
+      image.property3,
+    ],
+    "is_favorited": false,
+    "amenities": [
+      "wifi",
       "kitchen",
-      "petsAllowed",
+      "fireplace",
       "airConditioning"
     ],
-    "description": "A luxurious beachfront condo in Al Khobar, offering panoramic sea views and modern amenities.",
+    "description": "A charming lodge in the highlands of Abha, perfect for a quiet retreat with a breathtaking mountain view.",
     "availability": {
-      "availableFrom": "2024-10-01",
+      "availableFrom": "2024-10-05",
+      "availableTo": "2025-01-30"
+    },
+    "cancellationPolicy": "Free cancellation within 72 hours.",
+    "owner": {
+      "name": "Khalid Al-Mutairi",
+      "contact": "+966 5566778899",
+      "email": "khalid.mutairi@example.com"
+    },
+    "terms": {
+      "checkIn": "2:00 PM",
+      "checkOut": "12:00 PM",
+      "minStay": "3 nights",
+      "maxStay": "20 nights"
+    },
+    "coordinates": {
+      "latitude": 18.210802,
+      "longitude": 42.505891
+    }
+  },
+  {
+    id: 7,
+    "title": "Medina Heritage Villa",
+    "location": "Al-Masjid an-Nabawi - Historic District",
+    "type": "Villa",
+    "price": {
+      "original": 4000,
+      "discounted": 3500,
+      "currency": "SAR",
+      "per": "Night"
+    },
+    "rating": {
+      "stars": 4.7,
+      "reviews": 90
+    },
+    "attributes": {
+      "guests": 5,
+      "area": 1100,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "parkingSpaces": 2
+    },
+    "discount": {
+      "percentage": "12%",
+      "label": "12% Discount",
+      "validUntil": "2025-01-01"
+    },
+    "image_url": image.property1,
+    "gallery": [
+      image.property1,
+      image.property3,
+      image.property2,
+    ],
+    "is_favorited": true,
+    "amenities": [
+      "wifi",
+      "gym",
+      "airConditioning",
+      "petsAllowed",
+      "kitchen",
+      "washing machine"
+    ],
+    "description": "A heritage villa near the Prophet's Mosque, blending modern comfort with historic architecture.",
+    "availability": {
+      "availableFrom": "2024-11-01",
+      "availableTo": "2025-04-01"
+    },
+    "cancellationPolicy": "Free cancellation within 48 hours.",
+    "owner": {
+      "name": "Fatima Al-Sheikh",
+      "contact": "+966 7788990011",
+      "email": "fatima.sheikh@example.com"
+    },
+    "terms": {
+      "checkIn": "3:00 PM",
+      "checkOut": "12:00 PM",
+      "minStay": "2 nights",
+      "maxStay": "40 nights"
+    },
+    "coordinates": {
+      "latitude": 24.468611,
+      "longitude": 39.611111
+    }
+  },
+  {
+    id: 8,
+    "title": "Taif Rose Valley Resort",
+    "location": "Al Hada - Hilltop Cottage",
+    "type": "Resort",
+    "price": {
+      "original": 2700,
+      "discounted": 2400,
+      "currency": "SAR",
+      "per": "Night"
+    },
+    "rating": {
+      "stars": 4.6,
+      "reviews": 75
+    },
+    "attributes": {
+      "guests": 3,
+      "area": 950,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "parkingSpaces": 1
+    },
+    "discount": {
+      "percentage": "11%",
+      "label": "11% Discount",
+      "validUntil": "2025-02-01"
+    },
+    "image_url": image.property2,
+    "gallery": [
+      image.property3,
+      image.property1,
+      image.property2,
+    ],
+    "is_favorited": false,
+    "amenities": [
+      "wifi",
+      "gym",
+      "kitchen",
+      "pool",
+      "fireplace"
+    ],
+    "description": "A tranquil hilltop resort in the scenic Rose Valley of Taif, known for its cool climate and spectacular views.",
+    "availability": {
+      "availableFrom": "2024-12-10",
+      "availableTo": "2025-03-30"
+    },
+    "cancellationPolicy": "Free cancellation within 24 hours.",
+    "owner": {
+      "name": "Mohammed Al-Harbi",
+      "contact": "+966 6677889900",
+      "email": "mohammed.harbi@example.com"
+    },
+    "terms": {
+      "checkIn": "4:00 PM",
+      "checkOut": "11:00 AM",
+      "minStay": "3 nights",
+      "maxStay": "30 nights"
+    },
+    "coordinates": {
+      "latitude": 21.262741,
+      "longitude": 40.417908
+    }
+  },
+  {
+    id: 9,
+    "title": "Yanbu Seafront Apartment",
+    "location": "Royal Commission - Waterfront Views",
+    "type": "Apartment",
+    "price": {
+      "original": 2200,
+      "discounted": 1900,
+      "currency": "SAR",
+      "per": "Night"
+    },
+    "rating": {
+      "stars": 4.4,
+      "reviews": 45
+    },
+    "attributes": {
+      "guests": 2,
+      "area": 850,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "parkingSpaces": 1
+    },
+    "discount": {
+      "percentage": "14%",
+      "label": "14% Discount",
+      "validUntil": "2024-12-20"
+    },
+    "image_url": image.property3,
+    "gallery": [
+      image.property2,
+      image.property1,
+      image.property3,
+    ],
+    "is_favorited": true,
+    "amenities": [
+      "wifi",
+      "airConditioning",
+      "petsAllowed",
+      "kitchen",
+      "gym"
+    ],
+    "description": "A modern waterfront apartment located in the Royal Commission of Yanbu, offering direct sea views and premium facilities.",
+    "availability": {
+      "availableFrom": "2024-11-01",
       "availableTo": "2025-01-31"
     },
     "cancellationPolicy": "Free cancellation within 48 hours.",
     "owner": {
-      "name": "Khalid Al-Mansoori",
-      "contact": "+966 4455667788",
-      "email": "khalid.mansoori@example.com"
+      "name": "Ali Al-Yousef",
+      "contact": "+966 8899001122",
+      "email": "ali.yousef@example.com"
+    },
+    "terms": {
+      "checkIn": "5:00 PM",
+      "checkOut": "12:00 PM",
+      "minStay": "1 night",
+      "maxStay": "50 nights"
+    },
+    "coordinates": {
+      "latitude": 24.097222,
+      "longitude": 38.064444
+    }
+  },
+  {
+    id: 10,
+    "title": "Dammam Business Suite",
+    "location": "King Fahd District - Luxury Business Apartment",
+    "type": "Business Suite",
+    "price": {
+      "original": 3200,
+      "discounted": 2900,
+      "currency": "SAR",
+      "per": "Night"
+    },
+    "rating": {
+      "stars": 4.8,
+      "reviews": 100
+    },
+    "attributes": {
+      "guests": 1,
+      "area": 700,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "parkingSpaces": 1
+    },
+    "discount": {
+      "percentage": "9%",
+      "label": "9% Discount",
+      "validUntil": "2024-12-31"
+    },
+    "image_url": image.property1,
+    "gallery": [
+      image.property3,
+      image.property1,
+      image.property2,
+    ],
+    "is_favorited": false,
+    "amenities": [
+      "wifi",
+      "gym",
+      "airConditioning",
+      "petsAllowed",
+      "businessCenter"
+    ],
+    "description": "A high-end business suite located in Dammam, tailored for business travelers seeking luxury and convenience.",
+    "availability": {
+      "availableFrom": "2024-12-01",
+      "availableTo": "2025-03-01"
+    },
+    "cancellationPolicy": "Free cancellation within 24 hours.",
+    "owner": {
+      "name": "Salim Al-Rashid",
+      "contact": "+966 5566771122",
+      "email": "salim.rashid@example.com"
     },
     "terms": {
       "checkIn": "3:00 PM",
-      "checkOut": "11:00 AM",
-      "minStay": "2 nights",
-      "maxStay": "30 nights"
+      "checkOut": "12:00 PM",
+      "minStay": "1 night",
+      "maxStay": "15 nights"
     },
     "coordinates": {
-      "latitude": 26.217333,
-      "longitude": 50.197036
+      "latitude": 26.420682,
+      "longitude": 50.088794
     }
   }
+
 ]

@@ -7,20 +7,36 @@ import SelectNoOfGuests from './UI/SelectNoOfGuests';
 import { Typography } from './Typography';
 import Animated, { SlideInLeft, SlideOutRight, Layout } from 'react-native-reanimated';
 
-const FilterDestination = ({ handleModal }) => {
-  const [selectedDestination, setSelectedDestination] = useState();
-  const [selectedProperties, setSelectedProperties] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedDates, setSelectedDates] = useState({});
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
-  const [selectedKey, setSelectedKey] = useState('');
+const FilterDestination = ({
+  handleModal,
+  selectedDestination,
+  setSelectedDestination,
+  selectedProperties,
+  setSelectedProperties,
+  selectedDate,
+  setSelectedDate,
+  selectedDates,
+  setSelectedDates,
+  selectedTimeSlot,
+  setSelectedTimeSlot,
+  selectedKey,
+  setSelectedKey,
+  guestCounts,
+  setGuestCounts
+}) => {
+  // const [selectedDestination, setSelectedDestination] = useState();
+  // const [selectedProperties, setSelectedProperties] = useState([]);
+  // const [selectedDate, setSelectedDate] = useState('');
+  // const [selectedDates, setSelectedDates] = useState({});
+  // const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
+  // const [selectedKey, setSelectedKey] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0); // For controlling component display
-  const [guestCounts, setGuestCounts] = useState([
-    { category: 'Adults', age: 'Ages 13+', count: 0 },
-    { category: 'Children', age: 'Age 2-12', count: 0 },
-    { category: 'Infants', age: 'Under 2', count: 0 },
-    { category: 'Pets', age: 'Bringing a service animal?', count: 0 }
-  ]);
+  // const [guestCounts, setGuestCounts] = useState([
+  //   { category: 'Adults', age: 'Ages 13+', count: 0 },
+  //   { category: 'Children', age: 'Age 2-12', count: 0 },
+  //   { category: 'Infants', age: 'Under 2', count: 0 },
+  //   { category: 'Pets', age: 'Bringing a service animal?', count: 0 }
+  // ]);
 
   const Data = [
     { title: "All", icon: "trips" },
@@ -213,17 +229,23 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 20,
+
   },
   resetButton: {
     padding: 15,
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: '#F57224',
+    borderColor: '#DA4726',
+    width:180,
+    alignItems:"center"
   },
   continueButton: {
     padding: 15,
     borderRadius: 50,
-    backgroundColor: '#F57224',
+    backgroundColor: '#DA4726',
+  width:180,
+  alignItems:"center",
+
+
   },
 });

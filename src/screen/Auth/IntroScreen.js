@@ -31,23 +31,26 @@ const IntroScreen = ({ navigation }) => {
     };
 
     useEffect(() => {
-        setIntroData([
-            {
-                id: "1",
-                image: image.intro1,
-                title: strings.intro_title_1,
-            },
-            {
-                id: "2",
-                image: image.intro2,
-                title: strings.intro_title_2,
-            },
-            {
-                id: "3",
-                image: image.intro3,
-                title: strings.intro_title_3,
-            },
-        ]);
+        console.log("hi");
+        if(isFocus){
+            setIntroData([
+                {
+                    id: "1",
+                    image: image.intro1,
+                    title: strings.intro_title_1,
+                },
+                {
+                    id: "2",
+                    image: image.intro2,
+                    title: strings.intro_title_2,
+                },
+                {
+                    id: "3",
+                    image: image.intro3,
+                    title: strings.intro_title_3,
+                },
+            ]);
+        }
     }, [isFocus]);
 
     return (
@@ -75,8 +78,11 @@ const IntroScreen = ({ navigation }) => {
                 horizontal={true}
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
+               
                 onMomentumScrollEnd={(event) => {
-                    const index = Math.floor(event.nativeEvent.contentOffset.x / width);
+
+                    const index = Math.round(event.nativeEvent.contentOffset.x / width);
+                    console.log(index)
                     setCurrentIndex(index);
                 }}
             />

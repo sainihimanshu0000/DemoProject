@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { strings } from '../../locales/Localization';
 import OTPTextView from 'react-native-otp-textinput';
 import { Typography } from '../../components/Typography';
+import { Fonts } from '../../../assets/fonts/fonts';
+
 
 const OtpVerification = ({navigation}) => {
   const [time, setTime] = useState(15);
@@ -39,7 +41,7 @@ const OtpVerification = ({navigation}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <Typography fonts={600} size={20} lineHeight={30} color={"#000000"} style={styles.title}>{strings.OTP_Verfication}</Typography>
+      <Typography fonts={600} size={20} lineHeight={30} color={"#000000"}   type={Fonts.PoppinsBold} style={styles.title}>{strings.OTP_Verfication}</Typography>
       <Typography fonts={400} size={20} lineHeight={30} color={"#000000"} style={styles.discription}>
        {strings.A_verification_code_was_sent_to}
       </Typography>
