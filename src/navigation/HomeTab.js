@@ -3,6 +3,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SvgIcon from '../components/SvgIcon'; 
 import CustomTab from './CustomTab';
+import Colours from '../constants/Colours';
 
 const Tab = createBottomTabNavigator();
 
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover', 
   },
   tripIconContainer: {
-    backgroundColor: "#DA4726",
+    backgroundColor: Colours.oregon,
     width: 59.06,
     height: 59.06,
     justifyContent: "center",

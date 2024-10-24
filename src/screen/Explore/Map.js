@@ -14,7 +14,9 @@ import BottomSheetContainer from '../../components/BottomSheetContainer';
 import ChooseDestination from '../../components/UI/ChooseDestination';
 import ChooseProperty from '../../components/UI/ChooseProperty';
 import FilterDestination from '../../components/FilterDestination';
+import Colours from '../../constants/Colours';
 const { height } = Dimensions.get("window");
+
 
 const Map = () => {
   const snapPoints = useMemo(() => ["20%", "85.6%"], []);
@@ -170,14 +172,14 @@ const Map = () => {
                 }}
               >
                 <SvgIcon name={"map"} />
-                <Typography size={16} lineHeight={24} color={"#FFFFFF"} style={{ marginLeft: 8 }}>
+                <Typography size={16} lineHeight={24} color={Colours.white} style={{ marginLeft: 8 }}>
                   Map
                 </Typography>
               </TouchableOpacity>
               {/* <View style={styles.divider} />
               <TouchableOpacity style={styles.filterButton}>
                 <SvgIcon name={"filter2"} />
-                <Typography size={16} lineHeight={24} color={"#FFFFFF"} style={{ marginLeft: 8 }}>
+                <Typography size={16} lineHeight={24} color={Colours.white} style={{ marginLeft: 8 }}>
                   Filter
                 </Typography>
               </TouchableOpacity> */}
@@ -192,14 +194,14 @@ const Map = () => {
                 }}
               >
                 <SvgIcon name={"map"} />
-                <Typography size={16} lineHeight={24} color={"#FFFFFF"} style={{ marginLeft: 8 }}>
+                <Typography size={16} lineHeight={24} color={Colours.white} style={{ marginLeft: 8 }}>
                   Map
                 </Typography>
               </TouchableOpacity>
               <View style={styles.divider} />
               <TouchableOpacity style={styles.filterButton}>
                 <SvgIcon name={"filter2"} />
-                <Typography size={16} lineHeight={24} color={"#FFFFFF"} style={{ marginLeft: 8 }}>
+                <Typography size={16} lineHeight={24} color={Colours.white} style={{ marginLeft: 8 }}>
                   Filter
                 </Typography>
               </TouchableOpacity>
@@ -228,7 +230,7 @@ const Map = () => {
                 >
                   <View style={styles.markerContainer}>
                     <View style={styles.priceLabel}>
-                      <Typography color={"#000"}>
+                      <Typography color={Colours.black}>
                         {property.price.discounted} {property.price.currency}
                       </Typography>
                     </View>
@@ -355,7 +357,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapFilterView: {
-    backgroundColor: "#000",
+    backgroundColor: Colours.black,
     zIndex: 100,
     flexDirection: "row",
     bottom: "15%",
@@ -374,7 +376,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: Colours.white,
     height: "100%",
   },
 });

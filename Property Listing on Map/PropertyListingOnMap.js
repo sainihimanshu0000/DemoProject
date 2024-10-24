@@ -90,7 +90,7 @@ const Map = () => {
                 }}
               >
                 <SvgIcon name={"map"} />
-                <Typography size={16} lineHeight={24} color={"#FFFFFF"} style={{ marginLeft: 8 }}>
+                <Typography size={16} lineHeight={24} color={Colours.white} style={{ marginLeft: 8 }}>
                   Map
                 </Typography>
               </TouchableOpacity>
@@ -118,7 +118,7 @@ const Map = () => {
                 >
                   <View style={styles.markerContainer}>
                     <View style={styles.priceLabel}>
-                      <Typography color={"#000"}>
+                      <Typography color={Colours.black}>
                         {property.price.discounted} {property.price.currency}
                       </Typography>
                     </View>
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapFilterView: {
-    backgroundColor: "#000",
+    backgroundColor: Colours.black,
     zIndex: 100,
     flexDirection: "row",
     bottom: "5%",
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: Colours.white,
     height: "100%",
   },
 });

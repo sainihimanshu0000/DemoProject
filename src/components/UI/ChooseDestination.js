@@ -4,8 +4,10 @@ import { Typography } from '../Typography';
 import SvgIcon from '../SvgIcon';
 import { Fonts } from '../../../assets/fonts/fonts';
 import { properties } from '../../constants/PropertyData';
+import Colours from '../../constants/Colours';
 
-const ChooseDestination = ({ setSelectedDestination, selectedDestination,handleDestination }) => {
+
+const ChooseDestination = ({ setSelectedDestination, selectedDestination, handleDestination ,goToPrevious }) => {
     // const [selectedDestination, setSelectedDestination] = useState([]);
 
     // const handleDestination = (item) => {
@@ -17,20 +19,28 @@ const ChooseDestination = ({ setSelectedDestination, selectedDestination,handleD
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-            <TouchableOpacity onPress={handleModal}>
-                <Typography
-                    size={18}
-                    lineHeight={27}
-                    color={"#322E28"}
-                    style={{ fontFamily: Fonts.PoppinsBold }}
-                >
-                    Where to?
-                </Typography>
-            </TouchableOpacity>
+                {/* <TouchableOpacity style={{  marginTop: 10, marginHorizontal: 25 }} onPress={goToPrevious}>
+                    <SvgIcon name={"back"} color=Colours.black />
+                    </TouchableOpacity> */}
+            
+                    <View style={{marginLeft:10,marginTop:10}}>
 
-            <Typography size={14} lineHeight={21} color={"#322E28"}>
-                Choose or search your destination
-            </Typography>
+                <TouchableOpacity onPress={handleModal}>
+                    <Typography
+                        size={18}
+                        lineHeight={27}
+                        color={Colours.homeTabColor}
+                        style={{ fontFamily: Fonts.PoppinsBold }}
+                        >
+                        Where to?
+                    </Typography>
+                </TouchableOpacity>
+
+                <Typography size={14} lineHeight={21} color={Colours.homeTabColor}>
+                    Choose or search your destination
+                </Typography>
+                    
+            </View>
 
             <View style={styles.searchView}>
                 <SvgIcon name={"search"} style={styles.searchIcon} />
@@ -45,7 +55,7 @@ const ChooseDestination = ({ setSelectedDestination, selectedDestination,handleD
                     size={18}
                     lineHeight={27}
                     style={styles.sectionTitle}
-                    color={"#322E28"}
+                    color={Colours.homeTabColor}
                 >
                     All Destinations
                 </Typography>
@@ -57,7 +67,7 @@ const ChooseDestination = ({ setSelectedDestination, selectedDestination,handleD
                     renderItem={({ item }) => (
                         <View style={styles.destinationRow}>
                             <TouchableOpacity onPress={() => handleDestination(item)}>
-                                <Typography color={"#322E28"} size={16} lineHeight={53}>
+                                <Typography color={Colours.homeTabColor} size={16} lineHeight={53}>
                                     {item.location}
                                 </Typography>
                             </TouchableOpacity>
@@ -68,7 +78,7 @@ const ChooseDestination = ({ setSelectedDestination, selectedDestination,handleD
                     )}
                     keyExtractor={(item) => item.id.toString()}
                 />
-               
+
 
             </ScrollView>
         </ScrollView>
@@ -90,10 +100,10 @@ const styles = StyleSheet.create({
     searchView: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#fff",
+        backgroundColor: Colours.white,
         padding: 5,
         borderRadius: 30,
-        shadowColor: "#000",
+        shadowColor: Colours.black,
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.2,
         shadowRadius: 12,

@@ -11,6 +11,8 @@ import Validation from '../../utils/Validation';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from "@react-native-firebase/app";
 import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import Colours from '../../constants/Colours';
+
 
 
 const Login = ({ navigation }) => {
@@ -85,15 +87,15 @@ const Login = ({ navigation }) => {
           contentContainerStyle={[styles.container, isArabic ? { direction: 'rtl' } : null]}
         >
           <View style={styles.logoContainer}>
-            <SvgIcon name="customIcon" size={30} color="#000" />
+            <SvgIcon name="customIcon" size={30} />
           </View>
           <View style={styles.textContainer}>
-            <Typography size={30} lineHeight={45} color="#000000"   type={Fonts.PoppinsBold} style={styles.alignRight}>
+            <Typography size={30} lineHeight={45} color={Colours.black}   type={Fonts.PoppinsBold} style={styles.alignRight}>
               {strings.welcome_back}
             </Typography>
           </View>
 
-          <Typography size={18} lineHeight={27} color="#525758" style={[styles.alignRight, { marginBottom: 42 }]}>
+          <Typography size={18} lineHeight={27} color={Colours.textGraySec} style={[styles.alignRight, { marginBottom: 42 }]}>
             {strings.login_continue}
           </Typography>
 
@@ -118,7 +120,7 @@ const Login = ({ navigation }) => {
           )}
 
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Typography size={18} color="#FFFFFF" style={styles.buttonText}>
+            <Typography size={18} color={Colours.white} style={styles.buttonText}>
               {strings.login} 
             </Typography>
           </TouchableOpacity>
@@ -139,7 +141,7 @@ const Login = ({ navigation }) => {
               {strings.no_account} 
             </Typography>
             <TouchableOpacity onPress={() => {navigation.navigate("SignUp")}}>
-              <Typography  size={18} lineHeight={27} color="#DA4726" style={styles.signupText}>
+              <Typography  size={18} lineHeight={27} color={Colours.oregon }style={styles.signupText}>
                 {strings.signup} 
               </Typography>
             </TouchableOpacity>
@@ -161,7 +163,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     padding: 25,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colours.white,
  
   },
   logoContainer: {
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
   textContainer: {},
   alignRight: {},
   button: {
-    backgroundColor: '#DA4726',
+    backgroundColor: Colours.oregon,
     paddingVertical: 10,
     paddingHorizontal: 30,
     borderRadius: 30,
@@ -201,7 +203,7 @@ marginTop:-22,
     marginLeft: 5,
   },
   textInputStyle: {
-    color: '#000',
+    color: Colours.black,
     fontSize: 16,
     fontFamily: Fonts.RubikMedium,
     paddingVertical: 10,
@@ -211,7 +213,7 @@ marginTop:-22,
     textAlign: 'right', 
   },
   codeTextStyle: {
-    color: '#DA4726',
+    color: Colours.oregon,
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: Fonts.RubikMedium,

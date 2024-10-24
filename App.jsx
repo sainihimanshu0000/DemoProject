@@ -12,6 +12,8 @@ import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
 import { navigationRef } from './src/Notification/notificationAction';
 import Map from './src/screen/Explore/Map';
+import ChooseLanguage from './src/screen/Auth/ChooseLanguage';
+import IntroScreen from './src/screen/Auth/IntroScreen';
 const Stack= createNativeStackNavigator()
 
 if (Platform.OS === 'android') {
@@ -55,14 +57,14 @@ const App = () => {
   };
 
   return (
-//   <NavigationContainer
-//   ref={navigationRef}
-// >
-//     <Stack.Navigator screenOptions={{headerShown:false}} >
-//       <Stack.Screen name='Main' component={require("./src/navigation/MainStack").default} />
-//     </Stack.Navigator>
+  <NavigationContainer
+  ref={navigationRef}
+>
+    <Stack.Navigator screenOptions={{headerShown:false}} >
+      <Stack.Screen name='Main' component={require("./src/navigation/MainStack").default} />
+    </Stack.Navigator>
 
-//   </NavigationContainer>
+  </NavigationContainer>
 // {/* <View>
 //   <Button title='notification' onPress={handleLocalNotification}/>
 
@@ -71,7 +73,9 @@ const App = () => {
 //       onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
 //     />
 // </View> */}
-<Map/>
+// {/* <Map/> */}
+//  <ChooseLanguage/> 
+
   );
 };
 

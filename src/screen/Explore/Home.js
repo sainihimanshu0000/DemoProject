@@ -15,7 +15,7 @@ import Filter from '../../components/Filter';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLikedProperty } from '../../redux/action';
 import { image } from '../../../assets/image/image';
-
+import Colours from '../../constants/Colours';
 
 const Home = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
@@ -76,7 +76,7 @@ const Home = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <StatusBar barStyle={"dark-content"} translucent={false} backgroundColor={"#fff"} />
+      <StatusBar barStyle={"dark-content"} translucent={false} backgroundColor={Colours.white} />
       <View style={styles.container}>
         <View style={styles.header}>
           <SearchBox
@@ -91,15 +91,15 @@ const Home = ({ navigation }) => {
         <Swiper data={SwiperData} />
         <PropertyType data={PropertyTypeData} />
         <View style={styles.topCitiesContainer}>
-          <Typography size={20} lineHeight={30} color={"#000000"} style={{ fontFamily: Fonts.PoppinsBold }}>
+          <Typography size={20} lineHeight={30} color={Colours.black} style={{ fontFamily: Fonts.PoppinsBold }}>
             Top Cities
           </Typography>
           <View style={styles.citiesInfoContainer}>
-            <Typography size={14} lineHeight={21} color={"#322E28"} style={{ fontFamily: Fonts.PoppinsRegular }}>
+            <Typography size={14} lineHeight={21} color={Colours.inputBorder} style={{ fontFamily: Fonts.PoppinsRegular }}>
               More than 30K homes across 180 Saudi cities
             </Typography>
             <TouchableOpacity>
-              <Typography size={14} lineHeight={21} color={"#DA4726"} fonts={400}>
+              <Typography size={14} lineHeight={21} color={Colours.oregon} fonts={400}>
                 View all
               </Typography>
             </TouchableOpacity>
@@ -109,15 +109,15 @@ const Home = ({ navigation }) => {
 
 
         <View style={styles.topCitiesContainer}>
-          <Typography size={20} lineHeight={30} color={"#000000"} style={{ fontFamily: Fonts.PoppinsBold }}>
+          <Typography size={20} lineHeight={30} color={Colours.black} style={{ fontFamily: Fonts.PoppinsBold }}>
             Trending Properties
           </Typography>
           <View style={styles.citiesInfoContainer}>
-            <Typography size={14} lineHeight={21} color={"#322E28"} style={{ fontFamily: Fonts.PoppinsRegular }}>
+            <Typography size={14} lineHeight={21} color={Colours.inputBorder} style={{ fontFamily: Fonts.PoppinsRegular }}>
               50,000 properties in more than 150 cities
             </Typography>
             <TouchableOpacity >
-              <Typography size={14} lineHeight={21} color={"#DA4726"} fonts={400}>
+              <Typography size={14} lineHeight={21} color={Colours.oregon} fonts={400}>
                 View all
               </Typography>
             </TouchableOpacity>
@@ -135,20 +135,20 @@ const Home = ({ navigation }) => {
         <TouchableOpacity style={styles.mapView} onPress={() => {
           navigation.navigate("Map")
         }}>
-          <Typography color={"#DA4726"} size={18} lineHeight={27}>
+          <Typography color={Colours.oregon} size={18} lineHeight={27}>
             View All
           </Typography>
         </TouchableOpacity>
         <View style={styles.about}>
           <View style={styles.aboutTextContainer}>
-            <Typography size={24} lineHeight={33} color={"#FFFFFF"} style={{ fontFamily: Fonts.PoppinsBold }}>
+            <Typography size={24} lineHeight={33} color={Colours.white} style={{ fontFamily: Fonts.PoppinsBold }}>
               Become a host
             </Typography>
-            <Typography size={15} lineHeight={19} color={"#FFFFFF"}>
+            <Typography size={15} lineHeight={19} color={Colours.white}>
               Earn extra income and unlock new opportunities by sharing your space.
             </Typography>
             <TouchableOpacity style={styles.learnButton}>
-              <Typography size={16} lineHeight={24} color={"#DA4726"} style={{ fontFamily: Fonts.PoppinsBold }}>
+              <Typography size={16} lineHeight={24} color={Colours.oregon} style={{ fontFamily: Fonts.PoppinsBold }}>
                 Learn more
               </Typography>
             </TouchableOpacity>
@@ -166,7 +166,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: Colours.white,
 
     paddingBottom: 90,
   },
@@ -193,13 +193,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 65,
     borderWidth: 1,
-    borderColor: "#DA4726"
+    borderColor: Colours.oregon
   },
   about: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#DA4726",
+    backgroundColor: Colours.oregon,
     borderRadius: 20,
     marginHorizontal: 20,
     padding: 20,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   learnButton: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colours.white,
     height: 45,
     width: 133,
     borderRadius: 80,

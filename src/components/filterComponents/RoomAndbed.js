@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Typography } from '../Typography';
+import Colours from '../../constants/Colours';
 
 const RoomAndbed = ({ handleSelection, selectedBedrooms, selectedBeds, selectedBathrooms }) => {
     const renderOptions = (label, selectedValue, type) => (
         <View style={styles.subSection}>
-            <Typography color={"#000000"} size={16} lineHeight={24}>{label}</Typography>
+            <Typography color={Colours.black} size={16} lineHeight={24}>{label}</Typography>
             <View style={styles.buttonGroups}>
                 {['Any', 1, 2, 3, 4, 5].map((value) => (
                     <TouchableOpacity
@@ -16,7 +17,7 @@ const RoomAndbed = ({ handleSelection, selectedBedrooms, selectedBeds, selectedB
                         ]}
                         onPress={() => handleSelection(value, type)}
                     >
-                        <Typography color={selectedValue === value ?"#fff":"#000"}>{value}</Typography>
+                        <Typography color={selectedValue === value ?Colours.white:Colours.black}>{value}</Typography>
                     </TouchableOpacity>
                 ))}
             </View>
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontFamily: 'Poppins-Bold',
-        color: "#322E28",
+        color: Colours.inputBorder,
     },
     subSection: {
         marginVertical: 10,
@@ -55,7 +56,7 @@ flex:1,
     circleButton: {
     
         borderWidth: 1,
-        borderColor: "#F4F4F4",
+        borderColor: Colours.borderColor,
         borderRadius: 25,
         paddingHorizontal: 20,
         height: 40,
@@ -64,7 +65,7 @@ flex:1,
         marginHorizontal: 15,
     },
     selectedButton: {
-        backgroundColor: '#DA4726',
-        color:"#fff"
+        backgroundColor: Colours.oregon,
+        color:Colours.white
     },
 });

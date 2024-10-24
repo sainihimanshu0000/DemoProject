@@ -8,7 +8,7 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
     return (
         <View style={styles.container}>
             <View style={styles.iconWrapper}>
-                <SvgIcon name={svgLeftName} color={"#000"} />
+                <SvgIcon name={svgLeftName} color={Colours.black} />
             </View>
             <TouchableOpacity style={styles.placeholderWrapper} onPress={onPress}>
                 <Typography size={18} lineHeight={27} style={styles.placeholderText}>
@@ -16,7 +16,7 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
                 </Typography>
             </TouchableOpacity>
             <TouchableOpacity style={styles.filterIconWrapper} onPress={onPress}>
-                <SvgIcon name={svgRightName} color={"#000"} />
+                <SvgIcon name={svgRightName} color={Colours.black} />
             </TouchableOpacity>
         </View>
     );
@@ -27,13 +27,13 @@ export default SearchBox;
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: Colours.white,
         alignItems: 'center',
-        borderColor: '#FFFFFF',
+        borderColor: Colours.white,
         borderWidth: 2,
         paddingHorizontal: 10,
         borderRadius: 35,
-        shadowColor: '#000',
+        shadowColor: Colours.black,
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.2,
         shadowRadius: 12,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         marginHorizontal:10
     },
     placeholderText: {
-        // color: '#000', // Change color if needed
+        // color: Colours.black, // Change color if needed
         // // You can add more styles here if needed
     },
     filterIconWrapper: {

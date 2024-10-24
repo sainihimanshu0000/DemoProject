@@ -6,6 +6,9 @@ import SelectReservationDate from './UI/SelectReservationDate';
 import SelectNoOfGuests from './UI/SelectNoOfGuests';
 import { Typography } from './Typography';
 import Animated, { SlideInLeft, SlideOutRight, Layout } from 'react-native-reanimated';
+import SvgIcon from './SvgIcon';
+import Colours from '../constants/Colours';
+
 
 const FilterDestination = ({
   handleModal,
@@ -88,7 +91,7 @@ const FilterDestination = ({
       if (dates[day.dateString]) {
         delete dates[day.dateString];
       } else {
-        dates[day.dateString] = { selected: true, selectedColor: '#F57224' };
+        dates[day.dateString] = { selected: true, selectedColor: Colours.oregon };
       }
       setSelectedDates(dates);
     } else {
@@ -103,7 +106,7 @@ const FilterDestination = ({
     if (currentIndex < 3) {
       setCurrentIndex(currentIndex + 1);
     }
-    else{handleModal()}
+    else { handleModal() }
   };
 
   const goToPrevious = () => {
@@ -112,6 +115,12 @@ const FilterDestination = ({
 
   return (
     <View style={styles.container}>
+      <View style={{justifyContent:"flex-end", flexDirection:"row"}}>
+
+      <TouchableOpacity style={styles.closeIcon} onPress={handleModal}>
+        <SvgIcon name={"close"}/>
+      </TouchableOpacity>
+      </View>
       <View style={{ flex: 0.99 }}>
         <Animated.View
           entering={SlideInLeft}
@@ -119,91 +128,98 @@ const FilterDestination = ({
           layout={Layout}
           style={styles.contentContainer}
         >
+
           {currentIndex === 0 && (
-          <ChooseDestination
-            setSelectedDestination={setSelectedDestination}
-            selectedDestination={selectedDestination}
-            handleDestination={(item) => {
-              // const newDestination = selectedDestination.includes(item.location)
-              //   ? selectedDestination.filter(destination => destination !== item.location)
-              //   : [...selectedDestination, item.location];
-              setSelectedDestination(item.location);
-              goToNext()
-            }}
-          />
-        )}
-        {currentIndex === 1 && (
-          <ChooseProperty
-            selectedDestination={selectedDestination}
-            setSelectedProperties={setSelectedProperties}
-            selectedProperties={selectedProperties}
-            handlePropertySelection={(item) => {
-              if (item.title === "All") {
-                if (selectedProperties.includes("All")) {
-                  setSelectedProperties([]); // Deselect all
+            <ChooseDestination
+              setSelectedDestination={setSelectedDestination}
+              selectedDestination={selectedDestination}
+              goToPrevious={goToPrevious}
+              handleDestination={(item) => {
+                // const newDestination = selectedDestination.includes(item.location)
+                //   ? selectedDestination.filter(destination => destination !== item.location)
+                //   : [...selectedDestination, item.location];
+                setSelectedDestination(item.location);
+                goToNext()
+              }}
+            />
+          )}
+          {currentIndex === 1 && (
+            <ChooseProperty
+              selectedDestination={selectedDestination}
+              setSelectedProperties={setSelectedProperties}
+              selectedProperties={selectedProperties}
+              goToPrevious={goToPrevious}
+              handlePropertySelection={(item) => {
+                if (item.title === "All") {
+                  if (selectedProperties.includes("All")) {
+                    setSelectedProperties([]); // Deselect all
+                  } else {
+                    setSelectedProperties(Data.map(property => property.title));
+                  }
                 } else {
-                  setSelectedProperties(Data.map(property => property.title));
+                  const updatedProperties = selectedProperties.includes(item.title)
+                    ? selectedProperties.filter(property => property !== item.title)
+                    : [...selectedProperties, item.title];
+                  setSelectedProperties(updatedProperties.filter(property => property !== "All"));
                 }
-              } else {
-                const updatedProperties = selectedProperties.includes(item.title)
-                  ? selectedProperties.filter(property => property !== item.title)
-                  : [...selectedProperties, item.title];
-                setSelectedProperties(updatedProperties.filter(property => property !== "All"));
-              }
-            }}
-            Data={Data}
-          />
-        )}
-        {currentIndex === 2 && (
-          <SelectReservationDate
-            getSelectedDatesText={() => {
-              if (selectedKey === 'Date') {
-                const dates = Object.keys(selectedDates);
-                return dates.length > 0 ? dates.join(', ') : 'No dates selected';
-              }
-              return selectedDate || 'No date selected';
-            }}
-            key={key}
-            chooseReservationTime={chooseReservationTime}
-            selectedKey={selectedKey}
-            handleDateSelect={handleDateSelect}
-            selectedDate={selectedDate}
-            selectedTimeSlot={selectedTimeSlot}
-            setSelectedTimeSlot={setSelectedTimeSlot}
-            setSelectedKey={setSelectedKey}
-            selectedDestination={selectedDestination}
-            selectedProperties={selectedProperties}
-          />
-        )}
-        {currentIndex === 3 && (
-          <SelectNoOfGuests
-            guestCounts={guestCounts}
-            handleModal={handleModal}
-            setGuestCounts={setGuestCounts}
-            increment={increment}
-            decrement={decrement}
-            selectedDestination={selectedDestination}
-            selectedProperties={selectedProperties}
-            getSelectedDatesText={() => {
-              if (selectedKey === 'Date') {
-                const dates = Object.keys(selectedDates);
-                return dates.length > 0 ? dates.join(', ') : 'No dates selected';
-              }
-              return selectedDate || 'No date selected';
-            }}
-          />
-        )}
+              }}
+              Data={Data}
+            />
+          )}
+          {currentIndex === 2 && (
+            <SelectReservationDate
+              getSelectedDatesText={() => {
+                if (selectedKey === 'Date') {
+                  const dates = Object.keys(selectedDates);
+                  return dates.length > 0 ? dates.join(', ') : 'No dates selected';
+                }
+                return selectedDate || 'No date selected';
+              }}
+              key={key}
+              chooseReservationTime={chooseReservationTime}
+              selectedKey={selectedKey}
+              handleDateSelect={handleDateSelect}
+              selectedDate={selectedDate}
+              selectedTimeSlot={selectedTimeSlot}
+              setSelectedTimeSlot={setSelectedTimeSlot}
+              setSelectedKey={setSelectedKey}
+              selectedDestination={selectedDestination}
+              selectedProperties={selectedProperties}
+              goToPrevious={goToPrevious}
+              setSelectedDate={setSelectedDate}
+            />
+          )}
+          {currentIndex === 3 && (
+            <SelectNoOfGuests
+              guestCounts={guestCounts}
+              handleModal={handleModal}
+              setGuestCounts={setGuestCounts}
+              increment={increment}
+              decrement={decrement}
+              selectedDestination={selectedDestination}
+              selectedProperties={selectedProperties}
+              goToPrevious={goToPrevious}
+              selectedDates={selectedDates}
+              getSelectedDatesText={() => {
+                if (selectedKey === 'Date') {
+                  const dates = Object.keys(selectedDates);
+                  return dates.length > 0 ? dates.join(', ') : 'No dates selected';
+                }
+                return selectedDate || 'No date selected';
+              }}
+            />
+          )}
         </Animated.View>
       </View>
 
       <View style={styles.buttonContainer}>
         {currentIndex > 0 && (
           <TouchableOpacity onPress={goToPrevious} style={styles.resetButton}>
-            <Typography size={18} lineHeight={27} style={{ borderRadius: 30 }}>Reset</Typography>
+            <Typography size={18} lineHeight={27} style={{ borderRadius: 30 }} color={Colours.oregon}>Reset</Typography>
           </TouchableOpacity>
         )}
         <TouchableOpacity onPress={goToNext} style={styles.continueButton}>
-          <Typography size={18} lineHeight={27}>Continue</Typography>
+          <Typography size={18} lineHeight={27} color={Colours.white}>Continue</Typography>
         </TouchableOpacity>
       </View>
     </View>
@@ -223,10 +239,21 @@ const styles = StyleSheet.create({
     height: '85%',
     width: '100%',
   },
+  closeIcon:{
+    
+    backgroundColor:Colours.oregon,
+    width:25,
+    height:25,
+    borderRadius:20,
+    justifyContent:"center",
+    alignItems:"center",
+    right:0
+  },
   contentContainer: {
     flex: 1,
   },
   buttonContainer: {
+backgroundColor:Colours.white,
     flexDirection: 'row',
     justifyContent: 'space-around',
 
@@ -235,16 +262,16 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: '#DA4726',
-    width:180,
-    alignItems:"center"
+    borderColor: Colours.oregon,
+    width: "40%",
+    alignItems: "center"
   },
   continueButton: {
     padding: 15,
     borderRadius: 50,
-    backgroundColor: '#DA4726',
-  width:180,
-  alignItems:"center",
+    backgroundColor: Colours.oregon,
+    width: "40%",
+    alignItems: "center",
 
 
   },

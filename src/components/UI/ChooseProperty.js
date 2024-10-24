@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Typography } from '../Typography';
 import SvgIcon from '../SvgIcon';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
+
 
 const Data = [
   { title: "All", icon: "trips" },
@@ -12,7 +14,7 @@ const Data = [
   { title: "Camps", icon: "camps" },
 ];
 
-const ChooseProperty = ({selectedProperties,setSelectedProperties,handlePropertySelection,selectedDestination}) => {
+const ChooseProperty = ({selectedProperties,setSelectedProperties,handlePropertySelection,selectedDestination,goToPrevious}) => {
   // const [selectedProperties, setSelectedProperties] = useState([]);
 
   // const handlePropertySelection = (item) => {
@@ -44,13 +46,13 @@ const ChooseProperty = ({selectedProperties,setSelectedProperties,handleProperty
         <View style={{ flexDirection: "row", marginBottom: 20, justifyContent: "space-between" }}>
           <View style={[
             styles.section, 
-            item.icon === "trips" && { backgroundColor: "#DA4726" }
+            item.icon === "trips" && { backgroundColor: Colours.oregon }
           ]}>
             <SvgIcon name={item.icon} />
           </View>
           <Typography
             size={14}
-            color={isSelected ? "#000" : "#322E28"}
+            color={isSelected ? Colours.black : Colours.inputBorder}
             style={{ fontFamily: Fonts.PoppinsRegular, marginTop: 8, textAlign: 'left', flex: 1 }}
           >
             {item.title}
@@ -67,22 +69,31 @@ const ChooseProperty = ({selectedProperties,setSelectedProperties,handleProperty
 
   return (
     <View style={styles.container}>
+      <View style={{flexDirection:"row"}}>
+         <TouchableOpacity style={{  marginTop: 10, marginHorizontal: 25 }} onPress={goToPrevious}>
+                    <SvgIcon name={"back"}  />
+                </TouchableOpacity>
+
+        <View>
       <TouchableOpacity onPress={handleModal}>
+
         <Typography
           size={18}
           lineHeight={27}
-          color={"#322E28"}
+          color={Colours.inputBorder}
           style={{ fontFamily: Fonts.PoppinsBold, textAlign: 'left' }}
-        >
+          >
           Choose property type
         </Typography>
       </TouchableOpacity>
      
 
-      <Typography size={14} lineHeight={21} color={"#322E28"} style={{ marginVertical: 10, textAlign: 'left' , paddingBottom:20}}>
+      <Typography size={14} lineHeight={21} color={Colours.inputBorder} style={{ marginVertical: 10, textAlign: 'left' , paddingBottom:20}}>
         {selectedDestination} -{"\n"}
          {selectedProperties.length > 0 ? selectedProperties.join(', ') : "Select properties"}
       </Typography>
+          </View>
+            </View>
       <View style={{borderWidth: 1, borderColor: "#322E284D"}} />
 
       <FlatList
@@ -110,7 +121,7 @@ const styles = StyleSheet.create({
   },
   section: {
     borderWidth: 1,
-    borderColor: "#322E28",
+    borderColor: Colours.inputBorder,
     borderRadius: 30,
     height: 61,
     width: 61,
@@ -119,8 +130,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   selectedSection: {
-    backgroundColor: "#322E28",
-    borderColor: "#000",
+    backgroundColor: Colours.inputBorder,
+    borderColor: Colours.black,
   },
   listContainer: {
    

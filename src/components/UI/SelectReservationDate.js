@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { CalendarList } from 'react-native-calendars';
 import { Typography } from '../Typography';
 import { Fonts } from '../../../assets/fonts/fonts';
 import moment from 'moment';
+import SvgIcon from '../SvgIcon';
+import Colours from '../../constants/Colours';
+
 
 const SelectReservationDate = ({
   getSelectedDatesText,
@@ -12,18 +15,20 @@ const SelectReservationDate = ({
   handleDateSelect,
   selectedDate,
   selectedTimeSlot,
-  setSelectedKey, 
-  setSelectedDate, 
-  setSelectedDates, 
-  setSelectedTimeSlot, 
+  setSelectedKey,
+  setSelectedDate,
+  setSelectedDates,
+  setSelectedTimeSlot,
   selectedDestination,
-  selectedProperties
+  selectedProperties,
+  goToPrevious,
+  selectedDates
 }) => {
 
   useEffect(() => {
 
     if (!selectedKey) {
-      setSelectedKey('6 hours'); 
+      setSelectedKey('6 hours');
     }
   }, []);
 
@@ -35,22 +40,40 @@ const SelectReservationDate = ({
   };
 
   return (
-    <View style={styles.container}>
-      <Typography
-        size={18}
-        lineHeight={27}
-        color={"#322E28"}
-        style={{ fontFamily: Fonts.PoppinsBold }}
-      >
-        Choose reservation date
-      </Typography>
+    <ScrollView style={styles.container}>
+      <View>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity style={{ marginTop: 10, marginHorizontal: 25 }} onPress={goToPrevious}>
+            <SvgIcon name={"back"} color={Colours.black} />
+          </TouchableOpacity>
+          <View>
 
-      <Typography style={styles.selectedDatesText}>
-        {selectedDestination}{"\n"}
-        {selectedProperties}{"\n"}
-        {getSelectedDatesText()}
-      </Typography>
-      <View style={{borderWidth: 1, borderColor: "#322E284D" ,marginBottom:20}} />
+            <Typography
+              size={18}
+              lineHeight={27}
+              color={Colours.homeTabColor}
+              style={{ fontFamily: Fonts.PoppinsBold }}
+            >
+              Choose reservation date
+            </Typography>
+            {selectedDestination &&
+              <Typography size={14} lineHeight={21} color={Colours.homeTabColor} style={styles.selectedDatesText}>
+                {selectedDestination}{"\n"}
+              </Typography>
+            
+            }
+            {selectedProperties &&
+              <Typography size={14} lineHeight={21} color={Colours.homeTabColor}>
+                {selectedProperties}{"\n"}
+              </Typography>
+            }
+            <Typography size={14} lineHeight={21} color={Colours.homeTabColor}>
+              {getSelectedDatesText()}
+            </Typography>
+          </View>
+        </View>
+      </View>
+      <View style={{ borderWidth: 1, borderColor: "#322E284D", marginBottom: 20 }} />
 
       <View style={styles.timeSlotContainer}>
         <FlatList
@@ -65,13 +88,13 @@ const SelectReservationDate = ({
                 selectedKey === item && styles.selectedTimeSlot
               ]}
               onPress={() => {
-                setSelectedKey(item);
+                  setSelectedKey(item);
                 setSelectedDate('');
                 setSelectedDates({});
                 setSelectedTimeSlot('');
               }}
             >
-              <Typography size={14} lineHeight={40}>{item}</Typography>
+              <Typography size={14} lineHeight={40} color={ selectedKey === item ? Colours.white : Colours.homeTabColor}>{item}</Typography>
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -91,7 +114,7 @@ const SelectReservationDate = ({
               ]}
               onPress={() => setSelectedTimeSlot(item)}
             >
-              <Typography lineHeight={30} size={11} style={styles.timeSlotText}>{item}</Typography>
+              <Typography lineHeight={30} size={11} color={ selectedTimeSlot === item? Colours.white :Colours.homeTabColor}>{item}</Typography>
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -104,11 +127,11 @@ const SelectReservationDate = ({
         futureScrollRange={12}
         scrollEnabled={true}
         showScrollIndicator={false}
-        markedDates={selectedKey === 'Date' ? selectedDates : { [selectedDate]: { selected: true, selectedColor: '#F57224' } }}
+        markedDates={selectedKey === 'Date' ? selectedDates : { [selectedDate]: { selected: true, selectedColor: Colours.oregon } }}
         theme={{
-          selectedDayBackgroundColor: '#F57224',
-          todayTextColor: '#F57224',
-          arrowColor: '#F57224',
+          selectedDayBackgroundColor: Colours.oregon,
+          todayTextColor: Colours.oregon,
+          arrowColor: Colours.oregon,
           textDayFontFamily: Fonts.PoppinsMedium,
           textDayFontSize: 13,
           textMonthFontFamily: Fonts.PoppinsBold,
@@ -129,7 +152,7 @@ const SelectReservationDate = ({
           <Typography style={styles.continueText} size={18} lineHeight={27}>Continue</Typography>
         </TouchableOpacity>
       </View> */}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -137,26 +160,26 @@ export default SelectReservationDate;
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignContent: 'center',
-    height:"90%"
+    height: "90%"
   },
   timeSlotContainer: {
-    backgroundColor: '#F4F4F4',
+    backgroundColor: Colours.borderColor,
     borderRadius: 30,
-    width: '100%',
-    justifyContent: 'space-evenly',
+ justifyContent:"space-between"
+  
   },
   timeSlots: {
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: '#00000080',
+    borderColor: '#000000',
     margin: 5,
     paddingHorizontal: 10,
     shadowOpacity: 0.5,
     shadowRadius: 2,
     elevation: 3,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colours.white,
   },
   timeSlotButton: {
     borderRadius: 30,
@@ -164,7 +187,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   selectedTimeSlot: {
-    backgroundColor: '#F57224',
+    backgroundColor: Colours.oregon,
+    color:Colours.white
   },
   actions: {
     flexDirection: 'row',
@@ -175,22 +199,20 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#F57224',
+    borderColor: Colours.oregon,
   },
   continueButton: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: '#F57224',
+    backgroundColor: Colours.oregon,
   },
   continueText: {
     color: '#fff',
   },
   selectedDatesText: {
-    marginTop: 10,
-    marginBottom: 10,
-    fontSize: 16,
-    color: '#322E28',
-    fontFamily: Fonts.PoppinsRegular,
+   
+    
+   
   },
   calendar: {
     height: 300,

@@ -3,6 +3,8 @@ import React from 'react';
 import { image } from '../../assets/image/image';
 import SvgIcon from '../components/SvgIcon';
 import { Typography } from '../components/Typography';
+import Colours from '../constants/Colours';
+
 
 const { width } = Dimensions.get("window");
 
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     activeTabIcon: {
-        backgroundColor: "#DA4726",
+        backgroundColor: Colours.oregon,
         height: 60,
         width: 60,
         justifyContent: "center",

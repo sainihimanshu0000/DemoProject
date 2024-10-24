@@ -2,6 +2,7 @@ import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { Typography } from './Typography'; 
 import SvgIcon from './SvgIcon';
+import Colours from '../constants/Colours';
 
 const languageOption = ({ language, iconsName, image, selectedLanguage, onSelectLanguage }) => {
   const isSelected = selectedLanguage === language;
@@ -10,7 +11,7 @@ const languageOption = ({ language, iconsName, image, selectedLanguage, onSelect
     <TouchableOpacity onPress={() => onSelectLanguage(language)}>
       <View style={[styles.container, isSelected && styles.selectedContainer]}>
         <Image source={image} style={styles.imageLeft} />
-        <Typography style={styles.text} lineHeight={30} size={20} fonts={600} color={"#000"} >{language}</Typography>
+        <Typography style={styles.text} lineHeight={30} size={20} fonts={600} color={Colours.black} >{language}</Typography>
         <View style={{marginRight:27}}>
 
         {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   selectedContainer: { 
-    borderColor: '#DA4726',
+    borderColor: Colours.oregon,
   },
   imageLeft: {
     height: 37,

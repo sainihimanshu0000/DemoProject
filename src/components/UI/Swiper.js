@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, View, Image, Dimensions } from 'react-native';
 import React from 'react';
 import { Typography } from '../Typography';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
 const { width } = Dimensions.get('window');
 
 const Swiper = ({ data }) => {
@@ -10,13 +11,13 @@ const Swiper = ({ data }) => {
       <View style={styles.slide}>
         <Image source={item.bgImage} style={styles.image} />
         <View style={styles.textContainer}>
-          <Typography style={styles.title} size={21} lineHeight={27} color={"#fff"}>
+          <Typography style={styles.title} size={21} lineHeight={27} color={Colours.white}>
             {item.title}
           </Typography>
-          <Typography style={styles.content} size={41} lineHeight={41} color={"#fff"}>
+          <Typography style={styles.content} size={41} lineHeight={41} color={Colours.white}>
             {item.content}
           </Typography>
-          <Typography style={styles.about} size={11} lineHeight={27} color={"#fff"}>
+          <Typography style={styles.about} size={11} lineHeight={27} color={Colours.white}>
             {item.about}
           </Typography>
         </View>

@@ -3,6 +3,8 @@ import { View, Image, StyleSheet, TouchableOpacity, FlatList, Dimensions, Scroll
 import SvgIcon from '../SvgIcon';
 import { Typography } from '../Typography';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
+import Colours from '../../constants/Colours';
+
 
 
 const { width } = Dimensions.get('window');
@@ -30,7 +32,7 @@ const PropertyCard = ({ data, handlePropertyLiked, likedProperty }) => {
     return (
       <View style={styles.cardContainer}>
         <View style={styles.discountBadge}>
-          <Typography style={styles.discountText} size={12} lineHeight={18} color={"#FFFFFF"}>
+          <Typography style={styles.discountText} size={12} lineHeight={18} color={Colours.white}>
             {item.discount.label}
           </Typography>
         </View>
@@ -40,7 +42,7 @@ const PropertyCard = ({ data, handlePropertyLiked, likedProperty }) => {
         >
           <SvgIcon
             name="heart"
-            color={likedProperty.includes(item.id) ? "#D53737" : "#fff"}
+            color={likedProperty.includes(item.id) ? Colours.discountRed : Colours.white}
           />
         </TouchableOpacity>
 
@@ -70,7 +72,7 @@ const PropertyCard = ({ data, handlePropertyLiked, likedProperty }) => {
               style={[
                 styles.dot,
                 {
-                  backgroundColor: activeIndex.find(i => i.id === item.id && i.index === index) ? '#FFFFFF' : '#E0E0E0',
+                  backgroundColor: activeIndex.find(i => i.id === item.id && i.index === index) ? Colours.white : '#E0E0E0',
                   width: activeIndex.find(i => i.id === item.id && i.index === index) ? 23 : 8,
                 },
               ]}
@@ -82,35 +84,35 @@ const PropertyCard = ({ data, handlePropertyLiked, likedProperty }) => {
 
         <View style={styles.ratingWrapper}>
           <SvgIcon name={"star"} />
-          <Typography style={styles.ratingText} size={13} lineHeight={19.5} color={"#322E28"}>4.8 (50)</Typography>
+          <Typography style={styles.ratingText} size={13} lineHeight={19.5} color={Colours.inputBorder}>4.8 (50)</Typography>
         </View>
 
         <View style={styles.detailsContainer}>
-          <Typography style={styles.title} color={"#322E28"} size={18} lineHeight={27}>{item.title}</Typography>
-          <Typography style={styles.subtitle} color={"#322E28"} size={16} lineHeight={24}>{item.location}</Typography>
+          <Typography style={styles.title} color={Colours.inputBorder} size={18} lineHeight={27}>{item.title}</Typography>
+          <Typography style={styles.subtitle} color={Colours.inputBorder} size={16} lineHeight={24}>{item.location}</Typography>
           <View style={styles.attributesContainer}>
             {item.attributes.guests && (
               <View style={styles.attributeItem}>
                 <SvgIcon name={"Pools"} />
-                <Typography style={{ marginHorizontal: 10 }} color={"#322E28"} size={16}>{item.attributes.guests}</Typography>
+                <Typography style={{ marginHorizontal: 10 }} color={Colours.inputBorder} size={16}>{item.attributes.guests}</Typography>
               </View>
             )}
             {item.attributes.area && (
               <View style={styles.attributeItem}>
                 <SvgIcon name={"area"} />
-                <Typography style={{ marginHorizontal: 10 }} color={"#322E28"} size={16}>{item.attributes.area}</Typography>
+                <Typography style={{ marginHorizontal: 10 }} color={Colours.inputBorder} size={16}>{item.attributes.area}</Typography>
               </View>
             )}
             {item.attributes.bedrooms && (
               <View style={styles.attributeItem}>
                 <SvgIcon name={"badroom"} />
-                <Typography style={{ marginHorizontal: 10 }} color={"#322E28"} size={16}>{item.attributes.bedrooms}</Typography>
+                <Typography style={{ marginHorizontal: 10 }} color={Colours.inputBorder} size={16}>{item.attributes.bedrooms}</Typography>
               </View>
             )}
           </View>
 
           <View style={styles.priceContainer}>
-            <Typography style={styles.oldPrice} color={"#322E28"} size={15}>{item.price.original} SAR</Typography>
+            <Typography style={styles.oldPrice} color={Colours.inputBorder} size={15}>{item.price.original} SAR</Typography>
             <Typography style={styles.newPrice} color={"#1C1F20"} size={18}>{item.price.discounted} SAR</Typography>
             <Typography style={styles.priceText} color={"#606060"} size={18}>/ Night</Typography>
           </View>
@@ -122,7 +124,7 @@ const PropertyCard = ({ data, handlePropertyLiked, likedProperty }) => {
   return (
    
       <FlatList
-        data={data}
+        data={data?.slice(0,3)}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
     height: 40,
     width: 40,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colours.white,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,

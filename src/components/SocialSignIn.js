@@ -3,6 +3,8 @@ import React from 'react';
 import SvgIcon from './SvgIcon';
 import { Typography } from './Typography';
 import { strings } from '../locales/Localization';
+import Colours from '../constants/Colours';
+
 
 // const isArabic = strings.getLanguage() === 'ar';
 
@@ -11,7 +13,7 @@ const socialSignIn = ({ title, iconName ,Arabic ,onPress}) => {
   return (
     <TouchableOpacity style={[styles.container,Arabic ?{flexDirection:"row-reverse"}:{  flexDirection: 'row',}]} onPress={onPress}>
       <View style={styles.iconContainer}>
-        <SvgIcon name={iconName} color='#000' />
+        <SvgIcon name={iconName} />
       </View>
       <Typography fonts={500} size={16} lineHeight={24} style={styles.text}>
         {title}
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
     height: 60,
     alignItems: 'center',
     borderRadius: 40,
-    borderColor: "#322E28",
+    borderColor: Colours.inputBorder,
   },
   iconContainer: {
    marginHorizontal:12,
@@ -43,6 +45,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',  
     alignSelf:"center",
     alignItems:"center",
-    color:"#322E28"
+    color:Colours.inputBorder
   },
 });

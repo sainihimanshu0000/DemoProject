@@ -4,6 +4,7 @@ import { strings } from '../../locales/Localization';
 import OTPTextView from 'react-native-otp-textinput';
 import { Typography } from '../../components/Typography';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
 
 
 const OtpVerification = ({navigation}) => {
@@ -41,8 +42,8 @@ const OtpVerification = ({navigation}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <Typography fonts={600} size={20} lineHeight={30} color={"#000000"}   type={Fonts.PoppinsBold} style={styles.title}>{strings.OTP_Verfication}</Typography>
-      <Typography fonts={400} size={20} lineHeight={30} color={"#000000"} style={styles.discription}>
+      <Typography fonts={600} size={20} lineHeight={30} color={Colours.black}   type={Fonts.PoppinsBold} style={styles.title}>{strings.OTP_Verfication}</Typography>
+      <Typography fonts={400} size={20} lineHeight={30} color={Colours.black} style={styles.discription}>
        {strings.A_verification_code_was_sent_to}
       </Typography>
 
@@ -52,11 +53,11 @@ const OtpVerification = ({navigation}) => {
         containerStyle={styles.containerStyle}
       />
 
-      <Typography fonts={400} size={15} lineHeight={22.5} color={"#000000"} style={{  marginBottom:30}}>
+      <Typography fonts={400} size={15} lineHeight={22.5} color={Colours.black} style={{  marginBottom:30}}>
       {strings.OTP_about}
       </Typography>
 
-      <Typography fonts={400} size={18} lineHeight={27} color={"#DA4726"} style={{  marginBottom:34}}>0:{time < 10 ? `0${time}` : time}</Typography>
+      <Typography fonts={400} size={18} lineHeight={27} color={Colours.oregon} style={{  marginBottom:34}}>0:{time < 10 ? `0${time}` : time}</Typography>
 
       <TouchableOpacity
         style={styles.actionButton}
@@ -64,7 +65,7 @@ const OtpVerification = ({navigation}) => {
         // disabled={time > 0} 
 
       >
-        <Typography fonts={600} size={18} lineHeight={27} color={time > 0 ? "#B0B0B0" : "#DA4726"}>{strings.Resend_OTP}</Typography>
+        <Typography fonts={600} size={18} lineHeight={27} color={time > 0 ? "#B0B0B0" : Colours.oregon}>{strings.Resend_OTP}</Typography>
       </TouchableOpacity>
     </View>
   );
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     borderWidth: 1,
-    borderColor: "#DA4726",
+    borderColor: Colours.oregon,
     height: 60,
     width: "100%",
     justifyContent: "center",

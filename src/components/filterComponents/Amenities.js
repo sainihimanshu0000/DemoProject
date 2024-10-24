@@ -5,6 +5,7 @@ import { Typography } from '../Typography';
 
 import { Fonts } from '../../../assets/fonts/fonts';
 import SvgIcon from '../SvgIcon';
+import Colours from '../../constants/Colours';
 
 const Amenities = ({selectedAmenities,setSelectedAmenities,handleAmenities}) => {
     // const [selectedAmenities, setSelectedAmenities] = useState([]);
@@ -23,7 +24,7 @@ const Amenities = ({selectedAmenities,setSelectedAmenities,handleAmenities}) => 
                     <View key={amenity} style={styles.amenityRow}>
                         <Typography size={18} lineHeight={57}>{amenity}</Typography>
                         <TouchableOpacity onPress={() => handleAmenities(amenity)}>
-                            <View style={[styles.checkbox , selectedAmenities.includes(amenity) && {backgroundColor:"#DA4726" }]}>
+                            <View style={[styles.checkbox , selectedAmenities.includes(amenity) && {backgroundColor:Colours.oregon }]}>
                                 {selectedAmenities.includes(amenity) && <SvgIcon name="check" />}
                             </View>
                         </TouchableOpacity>
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     checkBox: {
-        backgroundColor: "#DA4726",
+        backgroundColor: Colours.oregon,
     },
     header: {
         flexDirection: 'row',
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontFamily: Fonts.PoppinsBold,
-        color: "#322E28",
+        color: Colours.inputBorder,
     },
     amenityRow: {
         flexDirection: 'row',

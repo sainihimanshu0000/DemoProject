@@ -8,6 +8,7 @@ import Amenities from './filterComponents/Amenities';
 import BookingOption from './filterComponents/BookingOption';
 import PropertyTypeList from './filterComponents/PropertyTypeList';
 import { useDispatch, useSelector } from 'react-redux';
+import Colours from '../constants/Colours';
 import {
     setPriceRange,
     setSelectedBedrooms,
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         paddingVertical: 3,
         paddingHorizontal: 3,
-        backgroundColor: '#F4F4F4',
+        backgroundColor: Colours.borderColor,
         borderColor: '#9A9A9A',
         borderWidth: 1,
         borderRadius: 30,
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     toggleButtonSelected: {
-        backgroundColor: '#DA4726',
+        backgroundColor: Colours.oregon,
         borderRadius: 20,
         paddingVertical: 5,
         paddingHorizontal: 10,
@@ -221,6 +222,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     footer: {
+        flex:1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 20,
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
         alignItems:"center"
     },
     clearButtonText: {
-        color: '#DA4726',
+        color: Colours.oregon,
       
     },
     showButton: {

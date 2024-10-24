@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Switch, ScrollView } from 'react-native';
-
+import Colours from '../../constants/Colours';
 import { Typography } from '../Typography';
 import RangeSlider from 'rn-range-slider';
 import { Fonts } from '../../../assets/fonts/fonts';
@@ -53,10 +53,10 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontFamily: Fonts.PoppinsBold,
-        color: "#322E28"
+        color: Colours.inputBorder
     },
     sectionSubtitle: {
-        color: "#322E28",
+        color: Colours.inputBorder,
         fontFamily: Fonts.PoppinsMedium
     },
     buttonGroup: {
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        backgroundColor: '#DA4726',
+        backgroundColor: Colours.oregon,
     },
     toggleButtonText: {
         color: '#322E28',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     },
     circleButton: {
         borderWidth: 1,
-        borderColor: "#F4F4F4",
+        borderColor: Colours.borderColor,
         borderRadius: 25,
         paddingHorizontal: 22,
         height: 40,
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     clearButtonText: {
-        color: '#DA4726',
+        color: Colours.oregon,
     },
     showButton: {
         backgroundColor: '#FF5A5F',

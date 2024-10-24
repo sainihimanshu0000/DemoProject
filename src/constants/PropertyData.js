@@ -1,12 +1,5 @@
 import { image } from "../../assets/image/image"
 
-// { title: "All", icon: "trips" },
-// { title: "Villas & Apartments", icon: "villas" },
-// { title: "Chalets & Resorts", icon: "Chalets" },
-// { title: "Farms", icon: "Farms" },
-// { title: "Camps", icon: "camps" },
-
-
 export const properties = [
   {
     id: 1,

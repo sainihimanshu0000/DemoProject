@@ -6,6 +6,7 @@ import SvgIcon from '../../components/SvgIcon';
 import Validation from '../../utils/Validation';
 import { strings } from '../../locales/Localization';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
 
 const SignUp = ({ navigation }) => {
     const [phone, setPhone] = useState('');
@@ -42,16 +43,13 @@ const SignUp = ({ navigation }) => {
         <ScrollView
             contentContainerStyle={[styles.scrollContainer, isArabic && { direction: "rtl" }]}
         >
-            {/* <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.container }
-            > */}
+          
                 <View style={[styles.headerContainer, isArabic && { alignSelf: "flex-end" }]}>
                     <Typography
                         size={30}
                         lineHeight={45}
                         type={Fonts.PoppinsBold}
-                        color={"#000000"}
+                        color={Colours.black}
                         style={styles.title}
                     >
                         {strings.create_account}
@@ -60,7 +58,7 @@ const SignUp = ({ navigation }) => {
                        
                         size={18}
                         lineHeight={27}
-                        color="#525758"
+                        color={Colours.textGraySec}
                     >
                         {strings['Let’s_get_started_now']}
                     </Typography>
@@ -160,22 +158,22 @@ const SignUp = ({ navigation }) => {
 
                 <View style={{ flexDirection: "row", alignItems: 'center' }}>
                     <TouchableOpacity
-                        style={[styles.checkBox, isCheck && { backgroundColor: "#DA4726" }]}
+                        style={[styles.checkBox, isCheck && { backgroundColor: Colours.oregon }]}
                         onPress={() => { setIsCheck(!isCheck) }}
                     >
                         {isCheck ? (<SvgIcon name={"check"} color={""}></SvgIcon>) : null}
                     </TouchableOpacity>
-                    <Typography fonts={400} size={16} lineHeight={24} color={"#322E28"}>
+                    <Typography fonts={400} size={16} lineHeight={24} color={Colours.inputBorder}>
                         {strings.terms_conditions}
                     </Typography>
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-                    <Typography size={18} color="#FFFFFF" fonts={600} style={styles.buttonText}>
+                    <Typography size={18} color={Colours.white} fonts={600} style={styles.buttonText}>
                         {strings.sign_up}
                     </Typography>
                 </TouchableOpacity>
-            {/* </KeyboardAvoidingView> */}
+          
         </ScrollView>
     );
 };
@@ -192,7 +190,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 21,
         paddingTop: 12,
-        backgroundColor: "#FFFFFF"
+        backgroundColor: Colours.white
     },
     headerContainer: {
         marginBottom: 33,
@@ -200,7 +198,7 @@ const styles = StyleSheet.create({
     },
     title: {},
     button: {
-        backgroundColor: '#DA4726',
+        backgroundColor: Colours.oregon,
         paddingVertical: 15,
         borderRadius: 30,
         alignItems: 'center',

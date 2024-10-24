@@ -4,6 +4,8 @@ import SvgIcon from './SvgIcon';
 import { Typography } from './Typography';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { BlurView } from '@react-native-community/blur';
+import Colours from '../constants/Colours';
+
 
 const { width } = Dimensions.get("window");
 
@@ -25,12 +27,12 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
     };
 
     return (
-        <ScrollView>
+        <ScrollView style={{padding:5}}>
             <Animated.View style={[styles.containerBox, animatedStyle]}>
                 {!isExpanded ? (
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.iconWrapper}>
-                            <SvgIcon name={svgLeftName} color={"#000"} />
+                            <SvgIcon name={svgLeftName} color={Colours.black} />
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.placeholderWrapper} onPress={handlePress}>
@@ -40,7 +42,7 @@ const SearchBox = ({ svgLeftName, svgRightName, placeholder, onPress }) => {
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.filterIconWrapper} onPress={onPress}>
-                            <SvgIcon name={svgRightName} color={"#000"} />
+                            <SvgIcon name={svgRightName} color={Colours.black} />
                         </TouchableOpacity>
                     </View>
                 ) : (
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         paddingHorizontal: 15,
         borderRadius: 35,
-        shadowColor: '#000',
+        shadowColor: Colours.black,
         shadowOpacity: 0.1,
         shadowRadius: 12,
         elevation: 3,
@@ -140,14 +142,16 @@ const styles = StyleSheet.create({
     iconWrapper: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop:10
     },
     placeholderWrapper: {
         flex: 1,
         justifyContent: 'center',
         marginHorizontal: 10,
+        marginTop:10,
     },
     placeholderText: {
-        color: '#000',
+        color: Colours.black,
         fontSize: 16,
         fontWeight: '500',
     },
@@ -159,6 +163,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#e1e1e1',
         borderRadius: 22,
+        marginTop:10,
+        marginRight:1,
+
     },
     header: {
         flexDirection: 'row',
@@ -173,7 +180,7 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         padding: 20,
         marginVertical: 10,
-        shadowColor: '#000',
+        shadowColor: Colours.black,
         shadowOpacity: 0.1,
         shadowRadius: 6,
         elevation: 3,

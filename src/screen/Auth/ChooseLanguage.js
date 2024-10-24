@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { strings } from '../../locales/Localization';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
 
 const ChooseLanguage = ({ navigation }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
@@ -24,18 +25,18 @@ const ChooseLanguage = ({ navigation }) => {
 
   return (
     <View style={[styles.container, strings.getLanguage() === 'en' ? null : { direction: 'rtl' }]}>
-      <StatusBar barStyle={"dark-content"} translucent={false}  backgroundColor={"#fff"}/>
+      <StatusBar barStyle={"dark-content"} translucent={false}  backgroundColor={Colours.white}/>
       <View style={{ marginBottom: 15, }}>
         <View style={styles.logoContainer}>
-          <SvgIcon name="customIcon" size={30} color="#000" />
+          <SvgIcon name="customIcon" size={30} color={Colours.black} />
         </View>
         <View style={styles.textContainer}>
-          <Typography size={30} lineHeight={45} color="#000000"   type={Fonts.PoppinsBold} style={styles.alignLeft}>
+          <Typography size={30} lineHeight={45} color={Colours.black}   type={Fonts.PoppinsBold} style={styles.alignLeft}>
             {strings.choose_language}
           </Typography>
         </View>
       </View>
-      <Typography size={18} lineHeight={27} color="#525758" style={[styles.alignLeft , { marginBottom: 42 }]}>
+      <Typography size={18} lineHeight={27} color={Colours.textGraySec} style={[styles.alignLeft , { marginBottom: 42 }]}>
         {strings.select_language}
       </Typography>
 
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
 
 
     padding: 25,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: Colours.white,
     height: "100%",
   },
   logoContainer: {

@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react
 import React from 'react';
 import { Typography } from '../Typography';
 import { Fonts } from '../../../assets/fonts/fonts';
+import Colours from '../../constants/Colours';
+
 
 const CityProperty = ({ data }) => {
   const renderItem = ({ item }) => {
@@ -11,10 +13,10 @@ const CityProperty = ({ data }) => {
           <Image source={item.cityImg} style={styles.cityImage} resizeMode="cover" />
         </View>
         <View style={styles.textContainer}>
-          <Typography lineHeight={30} fonts={600} style={styles.text} color={"#FFFFFF"} size={20}>
+          <Typography lineHeight={30} fonts={600} style={styles.text} color={Colours.white} size={20}>
             {item.cityName}
           </Typography>
-          <Typography lineHeight={24} fonts={400} style={styles.subText} color={"#FFFFFF"} size={16}>
+          <Typography lineHeight={24} fonts={400} style={styles.subText} color={Colours.white} size={16}>
             {item.totalProperty} properties
           </Typography>
         </View>

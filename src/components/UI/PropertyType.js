@@ -4,6 +4,7 @@ import { Typography } from '../Typography';
 import SvgIcon from '../SvgIcon';
 import { Fonts } from '../../../assets/fonts/fonts';
 const { width } = Dimensions.get("window");
+import Colours from '../../constants/Colours';
 
 const PropertyType = ({ data }) => {
     const renderItem = ({ item }) => {
@@ -13,9 +14,9 @@ const PropertyType = ({ data }) => {
 
             >
                 <View style={styles.iconContainer}>
-                    <SvgIcon name={item.typeImg} color={"#000"} />
+                    <SvgIcon name={item.typeImg} color={Colours.black} />
                 </View>
-                <Typography lineHeight={14.52} fonts={600} style={styles.text} color={"#322E28"}>
+                <Typography lineHeight={14.52} fonts={600} style={styles.text} color={Colours.inputBorder}>
                     {item.type}
                 </Typography>
             </TouchableOpacity>

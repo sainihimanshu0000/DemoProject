@@ -9,7 +9,7 @@ const PropertyTypeList = ({handleProperty,setSelectedProperty,selectedProperty})
     const renderItem = ({ item }) => (
         <TouchableOpacity
         key={item}
-        style={[styles.propertyTypeButton, selectedProperty.includes(item) && { backgroundColor: "#DA4726" }]}
+        style={[styles.propertyTypeButton, selectedProperty.includes(item) && { backgroundColor: Colours.oregon }]}
         onPress={() => handleProperty(item)}  // Passing item to handleProperty
       >
         <SvgIcon name={item} />

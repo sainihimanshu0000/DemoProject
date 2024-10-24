@@ -1,14 +1,58 @@
 // src/styles/colors.js
-export const colors = {
-    primary: "#000000",      
-    secondary: "#525758",    // Secondary color (for less important text, borders, etc.)
-    background: "#FFFFFF",   // Background color for most screens
-    textPrimary: "#000000",  // Primary text color
-    textSecondary: "#525758", // Secondary text color
-    accent: "#F15A24",       // Accent color for highlights or call-to-action elements
-    lightGray: "#F0F0F0",    // For light backgrounds or subtle borders
-    darkGray: "#A0A0A0",     // For inactive elements, disabled states
-    error: "#FF5252",        // Error message color
-    success: "#4CAF50",      // Success message color
-  };
+export default {
+  black: '#000',
+  white: '#ffffff',
+  secondary: '#1542D5',
+  seenMessage: '#9747FF',
+  primary: '#ffffff',
+  gray: '#B2B2B2',
+  blue: '#151875',
+  indigo: '#6184C6',
+  indigo2: '#F1F6FF',
+  darkGray: '#333333B2',
+  placeholderTextColor: '#33333399',
+  transparentPink: '#FFF2F5',
+  golden: '#FFAE5D',
+  goldenBG: '#FFFAF0',
+  red: '#f00',
+  btnText: '#444444',
+  lightGray: '#333333',
+  textColor: '#1E1E1E',
+  grayMedium: '#646464',
+  orderColor: '#D6D4D4B2',
+  background: '#f7f9fb',
+  textGray: '#646464',
+  searchInput: '#f6f6f6',
+  pink: '#FFE3EA',
+  btnGray: '#CECECE33',
+  borderColor: Colours.borderColor,
+  lightBorder: '#E4DFDF',
+  darkBlack: '#181818',
+  btmBlack: '#3C4257',
+  normalBlue: '#f1f6fe',
+  //
+  txtColor: '#121212',
+  staticText: '#5D637A',
+  authTxt: '#3D3D3D',
+  forgotPassword: '#1542D5',
+  account: '#3E3E3E',
+  drkCrl: '#0C0E23',
+  lightcolor: '#b6b7bd',
+  //
+  textGraySec: '#525758',
+  inputBorder: '#322E28',
+  oregon: '#DA4726',
+  homeTabColor: '#322E28',
+  discountRed: '#D53737',
+  grey: '#606060',
+  shadowWhite: Colours.borderColor,
+  filtertabboredr: '#9A9A9A',
+  borderBottomClr: '#d6d5d4',
+  green: '#269445',
+  darkBorder: '#999693',
+  startBg: '#F3F3F3',
+  productDetailLine: '#c8c4bc',
+  lightestGrey: '#c2c0bf',
+  lightOrange: '#CC4E00',
+};
   

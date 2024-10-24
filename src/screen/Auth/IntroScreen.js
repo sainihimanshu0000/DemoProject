@@ -6,6 +6,7 @@ import { Data } from '../../constants/introData';
 import { strings } from '../../locales/Localization';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useIsFocused } from '@react-navigation/native';
+import Colours from '../../constants/Colours';
 
 const { width } = Dimensions.get("window");
 const isArabic = strings.getLanguage() === "ar";
@@ -69,7 +70,7 @@ const IntroScreen = ({ navigation }) => {
                     <View style={styles.slide}>
                         <Image source={item.image} style={styles.image} />
                         <View style={styles.textContainer}>
-                            <Typography lineHeight={45} size={30} color="#fff">
+                            <Typography lineHeight={45} size={30} color={Colours.white}>
                                 {item.title}
                             </Typography>
                         </View>
@@ -94,7 +95,7 @@ const IntroScreen = ({ navigation }) => {
                         style={[
                             styles.dot,
                             {
-                                backgroundColor: currentIndex === index ? '#DA4726' : '#CCC8DE',
+                                backgroundColor: currentIndex === index ? Colours.oregon : '#CCC8DE',
                               
                             },
                         ]}
@@ -143,14 +144,14 @@ const styles = StyleSheet.create({
     },
     skipText: {
         fontSize: 16,
-        color: '#000',
+        color: Colours.black,
         fontFamily: 'Poppins-Regular',
     },
     nextContainer: {
         position: 'absolute',
         bottom: 20,
         right: 20,
-        backgroundColor: "#DA4726",
+        backgroundColor: Colours.oregon,
         borderRadius: 30,
         padding: 10,
         alignItems: "center",

@@ -4,6 +4,8 @@ import { Typography } from './Typography';
 import { Fonts } from '../../assets/fonts/fonts';
 import SvgIcon from './SvgIcon';
 import { strings } from '../locales/Localization';
+import Colours from '../constants/Colours';
+
 
 const InputFild = ({ fildName, value, onChangeText, placeholder, fieldType, errorMessage }) => {
 
@@ -24,7 +26,7 @@ const InputFild = ({ fildName, value, onChangeText, placeholder, fieldType, erro
   return (
     <View style={styles.container}>
       {fildName && (
-        <Typography size={18} color="#000000" fonts={500} style={{ marginBottom: 0, paddingHorizontal: 10 }}>
+        <Typography size={18} color={Colours.black } fonts={500} style={{ marginBottom: 0, paddingHorizontal: 10 }}>
           {fildName}
         </Typography>
       )}
@@ -37,7 +39,7 @@ const InputFild = ({ fildName, value, onChangeText, placeholder, fieldType, erro
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          placeholderTextColor="#322E28"
+          placeholderTextColor={Colours.inputBorder}
           secureTextEntry={isPasswordField && isSecure}
           keyboardType={getKeyboardType()}
         />
@@ -45,7 +47,7 @@ const InputFild = ({ fildName, value, onChangeText, placeholder, fieldType, erro
           isPasswordField && <TouchableOpacity style={[
             { marginRight: 10, }, isArabic && { justifyContent: "flex-start" }
           ]} onPress={() => setIsSecure(!isSecure)}>
-            <SvgIcon name='hide' color='#000' />
+            <SvgIcon name='hide' />
           </TouchableOpacity>
         }
       </View>
